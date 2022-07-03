@@ -1,0 +1,34 @@
+# Public docs
+public/docs
+public/storage
+public/themes
+public/vendor
+# Addons
+addons/*/public/js
+addons/*/public/css
+addons/*/public/images
+addons/*/public/fonts
+addons/*/public/libraries
+# Core
+core/*/public/js
+core/*/public/css
+core/*/public/images
+core/*/public/fonts
+core/*/public/libraries
+# Themes
+themes/*/public/js
+themes/*/public/css
+themes/*/public/images
+themes/*/public/fonts
+themes/*/public/libraries
+# Packages
+packages/*/public/js
+packages/*/public/css
+packages/*/public/images
+packages/*/public/fonts
+packages/*/public/libraries
+# Storage
+storage
+# vendor & node_modules
+vendor
+node_modules

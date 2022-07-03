@@ -1,0 +1,120 @@
+# Env
+.env
+
+# Composer files
+composer.dev.json
+composer.lock
+package-lock.json
+
+# CMS
+.scribe
+core
+packages
+addons
+themes
+/*/*/public/js
+/*/*/public/css
+
+# Npm / Yarn / Mix
+/node_modules
+package-lock.json
+yarn-error.log
+yarn.lock
+
+# Public
+/public/hot
+/public/storage
+public/vendor/core
+public/mix-manifest.json
+public/themes
+public/docs
+
+# Resources
+resources/docs
+resources/lang/vendor
+
+# Storage
+storage/*.key
+storage/fonts
+storage/framework/laravel-excel/
+storage/app/backup
+storage/cache_keys.json
+
+# Miscellaneous
+/log
+/vendor
+/bower_components
+/.vagrant
+npm-debug.log
+sftp-config.json
+.phpstorm.meta.php
+_ide_helper_models.php
+__MACOSX
+/.phpintel
+/.php_cs.cache
+/.sass-cache
+
+# Ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Ignore OS generated files
+ehthumbs.db
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+_ide_helper.php
+/.idea
+/.vscode
+
+# Eclipse project files
+.buildpath
+.project
+.settings/
+workspace.xml
+
+# Ignore system files
+.bash_history
+LICENSE_AFL.txt
+LICENSE.html
+LICENSE.txt
+LICENSE_EE*
+RELEASE_NOTES.txt
+.ssh/
+error_log
+php.ini.sample
+.modgit/
+_vti_bin/
+_vti_cnf/
+_vti_inf.html
+_vti_log/
+_vti_pvt/
+_vti_txt/
+tmp/
+php.ini
+_old/
+.viminfo
+.profile
+.bashrc
+.bash_logout
+.bash_history
+.modgit/
+.modman/
+pkginfo
+nohup.out
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
