@@ -6,6 +6,7 @@
 
 <p align="center">
     <a href="https://img.shields.io/github/license/blackcms/cms"><img alt="NPM" src="https://img.shields.io/github/license/blackcms/cms"></a>
+    <a href="https://img.shields.io/github/v/release/blackcms/cms"><img src="https://img.shields.io/github/v/release/blackcms/cms"></a>
     <a href="https://img.shields.io/github/forks/blackcms/cms"><img alt="NPM" src="https://img.shields.io/github/forks/blackcms/cms"></a>
     <a href="https://img.shields.io/github/issues/blackcms/cms"><img alt="NPM" src="https://img.shields.io/github/issues/blackcms/cms"></a>
 </p>
