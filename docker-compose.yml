@@ -1,0 +1,92 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: .docker/nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - .:/app
+    tty: true
+    depends_on:
+      - app
+
+  app:
+    container_name: app
+    build:
+      context: .docker/app
+      dockerfile: Dockerfile
+    environment:
+      LANG: 'it_IT.UTF8'
+      TZ: 'Europe/Rome'
+      APP_NAME: 'Laravel'
+      APP_ENV: 'development'
+      APP_DEBUG: 'true'
+      APP_URL: 'http://localhost'
+      LOG_CHANNEL: 'stderr'
+      DB_CONNECTION: 'pgsql'
+      DB_HOST: 'db'
+      DB_PORT: '5432'
+      DB_DATABASE: 'laravel_development'
+      DB_DATABASE_TEST: 'laravel_testing'
+      DB_USERNAME: 'docker'
+      DB_PASSWORD: 'docker'
+      MAIL_DRIVER: 'smtp'
+      MAIL_HOST: 'mail'
+      MAIL_PORT: '1025'
+      MAIL_USERNAME: 'null'
+      MAIL_PASSWORD: 'null'
+      MAIL_ENCRYPTION: 'null'
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    expose:
+      - 9000
+    tty: true
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12-alpine
+    container_name: db
+    environment:
+      TZ: 'Europe/Rome'
+      POSTGRES_USER: 'docker'
+      POSTGRES_PASSWORD: 'docker'
+      POSTGRES_DB: 'laravel_development'
+    volumes:
+      - ./.docker/db/data:/var/lib/postgresql/data
+      - ./.docker/db/sql:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis:6.0
+    container_name: redis
+    environment:
+      TZ: 'Europe/Rome'
+    command: redis-server --requirepass docker
+    volumes:
+      - redis:/data
+      - ./.docker/redis/conf:/user/local/etc/redis
+    ports:
+      - 6379:6379
+
+  mail:
+    image: schickling/mailcatcher
+    container_name: mail
+    ports:
+      - 1080:1080
+    expose:
+      - 1025
+
+networks:
+  default:
+    name: api
+
+volumes:
+  database:
+  redis:
