@@ -21,6 +21,10 @@ package-lock.json
 yarn-error.log
 yarn.lock
 
+# Docker
+.docker/db
+.docker/redis
+
 # Public
 /public/hot
 /public/storage
