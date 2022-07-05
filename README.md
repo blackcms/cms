@@ -16,13 +16,13 @@ BlackCMS is a modular and user friendly content management system (CMS) built wi
 
 It uses relational DBMS like MySQL or SQLite in conjunction with (optional) NoSQL systems like Redis.
 
-### What is CMS?
+## What is CMS?
 
 A content management system (CMS) is a piece of software which provides website authoring, collaboration, and administration tools that help users with little knowledge of programming languages create and manage website content.
 
 ---
 
-## Table of contents
+# Table of contents
 
 -   [Requirements](#requirements)
 -   [Installation](#installation)
@@ -34,6 +34,11 @@ A content management system (CMS) is a piece of software which provides website 
 -   [Start serve](#start-serve)
 -   [Commands](#commands)
 -   [Fix permissions](#fix-permissions)
+
+-   [Docker](#docker)
+    -   [Docker setup](#docker-setup)
+    -   [Docker development commands](#docker-development-commands)
+
 
 <a name="requirements"></a>
 
@@ -52,7 +57,7 @@ A content management system (CMS) is a piece of software which provides website 
 
 <a name="first-step"></a>
 
-#### First step
+### First step
 
 1. Clone this repository (SSH or HTTPS)
     - SSH
@@ -86,7 +91,7 @@ A content management system (CMS) is a piece of software which provides website 
 
 <a name="second-step"></a>
 
-#### Second step
+### Second step
 
 Assets are managed with [Laravel Mix](https://github.com/JeffreyWay/laravel-mix).
 You need to install [Node.js](http://nodejs.org), then go to your website folder and run these commands:
@@ -102,7 +107,7 @@ You need to install [Node.js](http://nodejs.org), then go to your website folder
 
 <a name="install-cms"></a>
 
-#### Install CMS
+### Install CMS
 
 Run the installation command:
 
@@ -189,5 +194,58 @@ sudo chmod -R 777 ./bootstrap/cache/
 sudo chmod -R 777 ./node_modules/
 ```
 
-## License
+
+<a name="docker"></a>
+
+# Docker:
+
+<a name="docker-setup"></a>
+
+## Docker setup:
+
+```
+cp .env.example .env
+
+docker-compose build
+docker-compose up -d
+docker-compose exec app composer install
+docker-compose exec app npm install
+docker-compose exec app npm run development
+
+docker-compose exec app php artisan cms:install
+
+docker-compose exec app chmod -R 777 storage
+docker-compose exec app chmod -R 777 bootstrap/cache
+```
+
+## Docker development commands:
+
+### Environment startup
+```
+docker-compose up
+```
+
+### Sass, Js monitoring
+```
+docker-compose exec app npm run watch
+```
+
+### When changing server settings
+```
+docker-compose build
+docker-compose up
+```
+
+### When changing various libraries
+```
+docker-compose exec app composer install
+docker-compose exec app npm install
+```
+
+### Cms installation
+```
+docker-compose exec app artisan cms:install
+```
+
+# License
 BlackCMS is released under LGPL v3 (Lesser General Public License)
