@@ -1,7 +1,7 @@
 {
     "name": "blackcms/cms",
-    "description": "BlackCMS is a modular and user friendly CMS based on Laravel 9.x",
-    "version": "1.0.0",
+    "description": "BlackCMS is a modular and user friendly CMS (Content Management System) based on Laravel 9.x",
+    "version": "1.1.0",
     "homepage": "http://blackcms.pyor.team",
     "keywords": [
         "laravel",
@@ -30,14 +30,17 @@
         "blackcms/core": "^1.0.0",
         "blackcms/packages": "^1.0.0",
         "blackcms/pyoris": "^1.0.0",
+        "blackcms/language": "^1.0.0",
+        "blackcms/language-advanced": "^1.0.0",
         "doctrine/dbal": "^3.1",
-        "laravel/framework": "^9.15.0",
+        "laravel/framework": "9.18.0",
         "league/flysystem-aws-s3-v3": "^3.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "wikimedia/composer-merge-plugin": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.16",
+        "friendsofphp/php-cs-fixer": "^3.8",
         "laravel/sail": "^1.10",
         "laravel/tinker": "^2.6",
         "nunomaduro/collision": "^6.1",
@@ -83,11 +86,10 @@
     },
     "scripts": {
         "check-cs": [
-            "./vendor/bin/phpcs -d"
+            "./vendor/bin/phpcs"
         ],
         "fix-cs": [
-            "npm run prettier --write * --ignore-path",
-            "./vendor/bin/phpcbf -d"
+            "./vendor/bin/phpcbf"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
