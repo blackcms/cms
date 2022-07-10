@@ -20,7 +20,7 @@
     ],
     "type": "project",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.3|^8.0|^8.1",
         "ext-curl": "*",
         "ext-gd": "*",
         "ext-json": "*",
