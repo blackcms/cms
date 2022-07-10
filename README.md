@@ -39,7 +39,6 @@ A content management system (CMS) is a piece of software which provides website 
     -   [Docker setup](#docker-setup)
     -   [Docker development commands](#docker-development-commands)
 
-
 <a name="requirements"></a>
 
 ## Requirements:
@@ -194,7 +193,6 @@ sudo chmod -R 777 ./bootstrap/cache/
 sudo chmod -R 777 ./node_modules/
 ```
 
-
 <a name="docker"></a>
 
 # Docker:
@@ -221,31 +219,37 @@ docker-compose exec app chmod -R 777 bootstrap/cache
 ## Docker development commands:
 
 ### Environment startup
+
 ```
 docker-compose up
 ```
 
 ### Sass, Js monitoring
+
 ```
 docker-compose exec app npm run watch
 ```
 
 ### When changing server settings
+
 ```
 docker-compose build
 docker-compose up
 ```
 
 ### When changing various libraries
+
 ```
 docker-compose exec app composer install
 docker-compose exec app npm install
 ```
 
 ### Cms installation
+
 ```
 docker-compose exec app artisan cms:install
 ```
 
 # License
+
 BlackCMS is released under LGPL v3 (Lesser General Public License)
